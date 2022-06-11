@@ -1,0 +1,13 @@
+/*---
+ Admin area style mods for SS Mods
+ Version	1.0.00
+---*/
+ 
+/* Admin customization starts here  ***unsure if this file is loading - check the relevant functions.php function
+------------------------------------------------------- */
+/*---Failing to hide the Administrator listing control and count at the top of the user page---*/
+.administrator {visibility:hidden!important;}
+/*------*/
+/*------*/
+/*------*/
+/*------*/

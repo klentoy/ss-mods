@@ -1,0 +1,165 @@
+/*---
+ Main CSS for SS-Mods plugin
+ Version	1.0.0/
+---*/
+
+/*---Import other CSS sample
+@import url("../ss-mods/someotherfile.css"); ---*/
+/***customising the beaver builder tabs***/
+.fl-tabs-vertical .fl-tabs-label.fl-tab-active {
+	background-color: #ebeded;
+/***	background-image: url("http://localhost/wordpress2/wp-content/uploads/2015/02/nav-image6.png");
+	background-repeat: no-repeat;
+	background-position: right;
+	font-weight: bold;
+	color: white;***/
+
+}
+
+.fl-tabs-panels {
+	background-color: #f2f2f2;
+}
+/******/
+.fl-tabs-label {
+   	background-color: #f5f5f5;
+}
+/******/
+/******/
+.ss_getitinthecenter{display: table; margin: 0 auto !important;}
+.ss_parkoverlappingdivsonme{width:100%; height:100%; position:relative; z-index:2;}
+.ss_parkmeontoptoo{position:absolute; right:5px; z-index:4;}
+.ss_backtotop_btn{font-size: 30px; height: auto; width: auto;} /***styling the back to top button***/
+.ss_limitheight{max-height:200px!important;}
+/******/
+.ss_floateditbtn_ontop{position:absolute;top:5px;left:calc(100% - 94px);z-index:999;}
+.ss_floatfootereditbtn_ontop{position:absolute;bottom:5px;left:calc(100% - 94px);z-index:999;}
+/******/
+/***Remove the powered by formcraft msg on forms***/
+.powered-by{display:none!important;}
+/******/
+/***LOCK OUT SIDE/HORIZONTAL SCROLL***/
+/***Needs to made conditional or optional - fixing a problem caused by my edit content / edit background buttons I think***/
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+/***
+	-webkit-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.5);
+	box-shadow: 0px 0px 10px 5px rgba(0,0,0,0.5);
+}***/
+/*---for the automatic Beaver Builder edit content button---*/
+.glow-on-hover {
+    padding: 2;
+    border: 0;
+    border-color: white;
+    outline: none;
+    color: #ffffff;
+    background: #111;
+    background-image: url("/images/shipwreck32x32.png");
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 50%;
+}
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 50%;
+}
+.glow-on-hover:active {
+    color: #000
+}
+.glow-on-hover:active:after {
+    background: transparent;
+}
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 50%;
+}
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+/*---White glass background---*/
+.whiteglass-backgound{
+background: rgba(255,255,255,1);
+background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.99) 15%, rgba(242,242,242,0.95) 50%, rgba(230,230,230,0.95) 51%, rgba(250,250,250,0.9) 100%);
+background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(15%, rgba(255,255,255,0.99)), color-stop(50%, rgba(242,242,242,0.95)), color-stop(51%, rgba(230,230,230,0.95)), color-stop(100%, rgba(250,250,250,0.9)));
+background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.99) 15%, rgba(242,242,242,0.95) 50%, rgba(230,230,230,0.95) 51%, rgba(250,250,250,0.9) 100%);
+background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.99) 15%, rgba(242,242,242,0.95) 50%, rgba(230,230,230,0.95) 51%, rgba(250,250,250,0.9) 100%);
+background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(255,255,255,0.99) 15%, rgba(242,242,242,0.95) 50%, rgba(230,230,230,0.95) 51%, rgba(250,250,250,0.9) 100%);
+background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(255,255,255,0.99) 15%, rgba(242,242,242,0.95) 50%, rgba(230,230,230,0.95) 51%, rgba(250,250,250,0.9) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#fafafa', GradientType=0 );
+}
+/*---pad the content of search results and drop off the top of screen a little---*/
+.padthecontentandshiftdownscreen{
+    position: relative!important;
+	padding: 10px!important;
+	top: 60px!important;
+	max-width: 300px!important;
+}
+/*------*/
+/*---make images sit in the bottom of their div---*/
+.sitdown img {
+ 	/*---not working on beaver images?---*/
+}
+/*---fix re-captcha styling---*/
+.recaptcha_input_area {max-height: 20px!important;}
+#recaptcha_response_field {max-height: 20px!important;}
+
+/*---Page divider---*/
+div.ss-divider{
+	width: 80%;
+	margin: 0 auto;
+	height: 2px;
+	background: #828282;
+	overflow: hidden;
+}
+/*---Drop Shadows - multi browser compatible - not working in ie?---*/
+/*---Syntax: horizontal, vertical, blur, colour---*/
+/*---Repair this later with cssmatic.com gen'd code---*/
+.ss-shadowed {
+	-webkit-filter: drop-shadow(12px 12px 7px rgba(0,0,0,0.5));
+	filter: drop-shadow(12px 12px 7px rgba(0,0,0,0.5));
+	filter: url(shadow.svg#drop-shadow);
+	-ms-filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+	filter: "progid:DXImageTransform.Microsoft.Dropshadow(OffX=12, OffY=12, Color='#444')";
+	}
+/*------*/
+/*---MEDIA QUERIES---*/
+/*---applies only if the screen is narrower than *px
+@media screen and (max-width: 1000px) {
+  .page-paddingforsidebars{
+	padding-left: 15px;
+	padding-right: 15px;
+  .poc-item{data-state="closed"!important;}
+}---*/
+/*------*/
+/*------*/
+/*------*/
+/*------*/
+/*------*/

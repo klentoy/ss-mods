@@ -3,7 +3,7 @@
 Plugin Name: SS-Mods
 Plugin URI: http://shipwreckstudio.com
 Description: Shipwreck Studio mods - started 12/11/15 - Last mod 22/2/19 - Agency mods for all client sites
-Version: 0.93 - added wp-login-rename
+Version: 1.0.0
 Author: Rick Moore
 Author URI: http://shipwreckstudio.com
 Plugin Type: Agency
@@ -24,6 +24,7 @@ include( plugin_dir_path( __FILE__ ) . 'inc/ss-mods-whitelabel.php');
 include( plugin_dir_path( __FILE__ ) . 'inc/ss-mods-security.php');
 include( plugin_dir_path( __FILE__ ) . 'inc/loginaddress.php');
 include( plugin_dir_path( __FILE__ ) . 'admin/ssmods-options.php');
+include( plugin_dir_path( __FILE__ ) . 'inc/ss-mods-update.php');
 /*------*/
 
 /*---additional code from ubermenu for integration with toolset bootstrap theme---*/

@@ -34,11 +34,13 @@ function load_custom_wp_admin_style() {
 /*--- Automated Beaver Builder content edit button for front end ---*/
 //Now with funky new rainbow glow (css only) - appears overlayed on top right corner as a black circle when logged in
 function ss_bb_edit_btn($content) {
+	// if (function_exists('FLBuilderModel')){
 	  if ( FLBuilderModel::is_builder_enabled() )
 		if (current_user_can('edit_posts'))
 		    $custom_content = '<div class="ss_floateditbtn_ontop"><a href="?fl_builder"><button class="glow-on-hover ss_floateditbtn_ontop" title="EDIT CONTENT - Only Admins can see this button"><img src= "/wp-content/plugins/ss-mods/images/shipwreck32x32.png" width="40" height="40"></button></a></div>';
 			$custom_content .= $content; //concatenate
 			return $custom_content;
+	// }
 }
 /*------*/
 /*------*/

@@ -65,23 +65,39 @@ function ssmods_settings_init()
 		if (!function_exists('get_home_path')) {
 			require_once ABSPATH . 'wp-admin/includes/file.php';
 		}
-		
 		$options = get_option('ssmods_advance_settings');
 		$ips = explode(PHP_EOL, $options['ssmods_advance_textarea_wl']);
-		$htaccess = "<Files wp-login.php>\n";
-		$htaccess .= "	order deny,allow\n";
-		foreach($ips as $ip){
-			if (rest_is_ip_address($ip)){
-				$htaccess .= "allow from ". $ip . "\n";
+		$err_message = "";
+		// if ( isset( $_GET['settings-updated'] ) && $_GET['settings_updated'] == true ) {
+			$htaccess = "<Files wp-login.php>\n";
+			$htaccess .= "	order deny,allow\n";
+			foreach($ips as $ip){
+				if (rest_is_ip_address(trim($ip)) == true){
+					$htaccess .= "	allow from ". $ip . "\n";
+				}
 			}
-		}
-		$htaccess .= "	deny from all\n";
-		$htaccess .= "</Files>\n";
-		$root_path = get_home_path();
-		insert_with_markers($root_path . '.htaccess', 'Force Download', $htaccess);
+			$htaccess .= "	deny from all\n";
+			$htaccess .= "</Files>\n";
+			$root_path = get_home_path();
+			insert_with_markers($root_path . '.htaccess', 'Whitelist IPs', $htaccess);
+		// }
 		?>
 		<textarea name="ssmods_advance_settings[ssmods_advance_textarea_wl]" id="" cols="50" rows="10"><?php echo trim($options['ssmods_advance_textarea_wl']); ?></textarea>
 		<?php
+		foreach($ips as $ip2){
+			if (rest_is_ip_address(trim($ip2)) == false){
+				$err_message .= "<li>". $ip2 ."</li>";
+			}
+		}
+		if(strlen($err_message) > 0){
+			?>
+			<hr>
+			<span>IP(s) listed below are not valid:</span>
+			<ul>
+				<?php echo $err_message; ?>
+			</ul>
+			<?php
+		}
 	}, 'SSAdvanceSettingsPage', 'ssmods_advance_pluginPage_section');
 
 }
